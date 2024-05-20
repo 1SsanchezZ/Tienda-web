@@ -13,6 +13,17 @@ document.addEventListener('DOMContentLoaded', function () {
                 <label for="cantidad">Selecciona la cantidad:</label>
                 <input type="number" id="cantidad" name="cantidad" min="1" required>
             </div>
+            <div id="tallaPolera" style="display: none;">
+                <label for="talla">Selecciona la talla:</label>
+                <select name="talla" id="talla">
+                    <option value="">Seleccionar...</option>
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                    <option value="XXL">XXL</option>
+                </select>
+            </div>
             <div>
                 <label for="tipoTrabajo">Tipo de trabajo:</label>
                 <select name="tipoTrabajo" id="tipoTrabajo" required>
@@ -58,6 +69,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const viniloOptions = form.querySelector('#viniloOptions');
         const imagenInput = form.querySelector('#imagenInput');
         const personalizadoOptions = form.querySelector('#personalizadoOptions');
+        const tallaPolera = form.querySelector('#tallaPolera');
 
         tipoTrabajoSelect.addEventListener('change', function() {
             if (this.value === 'vinilo') {
@@ -78,6 +90,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 personalizadoOptions.style.display = 'none';
             }
         });
+
+        // Mostrar el campo de talla si el tipo de producto es "polera"
+        if (tipoProducto === 'polera') {
+            tallaPolera.style.display = 'block';
+        }
 
         // Manejar envío del formulario
         form.addEventListener('submit', function(event) {
@@ -106,3 +123,4 @@ document.addEventListener('DOMContentLoaded', function () {
 
     formContainer.appendChild(tipoProductoSelect);
 });
+
