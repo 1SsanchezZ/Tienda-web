@@ -32,7 +32,10 @@ function searchHandler(event) {
                 break;      
             case "bolsas":
                 window.location.href = "BolsaTote.html";
-                break;         
+                break;
+            case "polera anuel":
+                window.location.href = "Poleras.html";
+                break;  
             default:
                 alert("Error: no se pudo encontrar");
         }
